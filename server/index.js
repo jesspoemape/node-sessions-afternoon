@@ -5,7 +5,8 @@ const session = require('express-session');
 const app = express();
 
 const cfs = require('./middlewares/checkForSession');
-const swagController = require('./controllers/swagController.js');
+const swagController = require('./controllers/swagController');
+const authController = require('./controllers/authController');
 
 
 // =========== MIDDLEWARE =============
@@ -19,7 +20,10 @@ app.use(cfs);
 
 // ============= ENDPOINTS ============
 app.get('/api/swag', swagController.read);
-
+app.post('/api/login', authController.login);
+app.post('/api/register', authController.register);
+app.post('/api/signout', authController.signout);
+app.get('/api/user', authController.getUser);
 
 
 

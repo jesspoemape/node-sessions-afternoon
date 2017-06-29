@@ -9,7 +9,9 @@ module.exports = {
                 req.session.user.username = req.body.username;
                 res.status(200).send(req.session.user);
             }
-            res.status(500);
+            else {
+                res.status(500).send("Invalid username or password");
+            } 
         }
     },
     register: (req, res, next) => {
