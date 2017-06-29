@@ -14,18 +14,6 @@ module.exports = {
         else {
             res.status(500).send("Invalid username or password");
         }
-
-        // for (var i = 0; i < users.length; i++) {
-        //     if (req.body.username === users[i].username && req.body.password === users[i].password) {
-        //         console.log("match found");
-        //         req.session.user.username = req.body.username;
-        //         res.status(200).send(req.session.user);
-        //     }
-        //     else { 
-        //         console.log("no match");
-        //         res.status(500).send("Invalid username or password"); 
-        //     } 
-        // }
     },
     register: (req, res, next) => {
         if (req.body.username && req.body.password) {

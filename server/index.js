@@ -7,6 +7,7 @@ const app = express();
 const cfs = require('./middlewares/checkForSession');
 const swagController = require('./controllers/swagController');
 const authController = require('./controllers/authController');
+const cartController = require('./controllers/cartController');
 
 
 // =========== MIDDLEWARE =============
@@ -25,6 +26,10 @@ app.post('/api/register', authController.register);
 app.post('/api/signout', authController.signout);
 app.get('/api/user', authController.getUser);
 app.get('/api/users', authController.getUsers);
+
+app.post('/api/cart/add', cartController.add);
+app.post('/api/cart/checkout', cartController.checkout);
+app.delete('/api/cart/delete', cartController.delete);
 
 
 
