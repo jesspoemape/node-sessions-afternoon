@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const cfs = require('./middlewares/checkForSession.js');
 
 const app = express();
 
@@ -10,6 +11,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
+app.use(cfs);
 
 app.listen(3000, () => {
     console.log("Listening on port 3000");
