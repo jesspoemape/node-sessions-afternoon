@@ -24,6 +24,7 @@ app.post('/api/login', authController.login);
 app.post('/api/register', authController.register);
 app.post('/api/signout', authController.signout);
 app.get('/api/user', authController.getUser);
+app.get('/api/users', authController.getUsers);
 
 
 
