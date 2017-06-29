@@ -13,12 +13,21 @@ module.exports = {
         }
     },
     register: (req, res, next) => {
-
+        if (req.body.username && req.body.password) {
+            users.push({
+                id: id++,
+                username: req.body.username,
+                password: req.body.password
+            });
+            req.session.user.username = req.body.username;
+            res.status(200).send(req.session.user);
+        }
     },
     signout: (req, res, next) => {
-
+        req.session.destroy();
+        res.send(req.session);
     },
     getUser: (req, res, next) => {
-
+        res.status(200).send(req.session.user);
     }
 }
