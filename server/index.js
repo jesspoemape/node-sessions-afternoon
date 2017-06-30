@@ -12,6 +12,7 @@ const searchController = require('./controllers/searchController');
 
 
 // =========== MIDDLEWARE =============
+app.use(express.static( __dirname + '/../public/build' ) );
 app.use(bodyParser.json());
 app.use(session({
     secret: '83y98roihaejnd5r6tyg3hewds90iojk4rewfsdtyughj23eqwdyiuh',
@@ -28,9 +29,9 @@ app.post('/api/signout', authController.signout);
 app.get('/api/user', authController.getUser);
 app.get('/api/users', authController.getUsers);
 
-app.post('/api/cart/add', cartController.add);
+app.post('/api/cart', cartController.add);
 app.post('/api/cart/checkout', cartController.checkout);
-app.delete('/api/cart/delete', cartController.delete);
+app.delete('/api/cart', cartController.delete);
 
 app.get('/api/search', searchController.search);
 
