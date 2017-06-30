@@ -8,6 +8,7 @@ const cfs = require('./middlewares/checkForSession');
 const swagController = require('./controllers/swagController');
 const authController = require('./controllers/authController');
 const cartController = require('./controllers/cartController');
+const searchController = require('./controllers/searchController');
 
 
 // =========== MIDDLEWARE =============
@@ -30,6 +31,8 @@ app.get('/api/users', authController.getUsers);
 app.post('/api/cart/add', cartController.add);
 app.post('/api/cart/checkout', cartController.checkout);
 app.delete('/api/cart/delete', cartController.delete);
+
+app.get('/api/search', searchController.search);
 
 
 
